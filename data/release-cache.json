@@ -1,0 +1,98 @@
+{
+  "https://open.spotify.com/album/7jToFLgzvKxJxr4syBZlyY": {
+    "title": "Changing",
+    "subtitle": "OLUWATOBI",
+    "type": "album",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2738e8af319f36d7a0c99c3b57f",
+    "spotifyUrl": "https://open.spotify.com/album/7jToFLgzvKxJxr4syBZlyY",
+    "links": [
+      {
+        "id": "amazonMusic-0",
+        "platform": "amazonMusic",
+        "label": "Amazon Music",
+        "url": "https://music.amazon.com/albums/B0FF74BQ31"
+      },
+      {
+        "id": "amazonStore-1",
+        "platform": "amazonStore",
+        "label": "amazonStore",
+        "url": "https://amazon.com/dp/B0FF74BQ31"
+      },
+      {
+        "id": "bandcamp-2",
+        "platform": "bandcamp",
+        "label": "Bandcamp",
+        "url": "https://oluwatobi.bandcamp.com/album/changing"
+      },
+      {
+        "id": "boomplay-3",
+        "platform": "boomplay",
+        "label": "boomplay",
+        "url": "https://www.boomplay.com/albums/112575179"
+      },
+      {
+        "id": "deezer-4",
+        "platform": "deezer",
+        "label": "Deezer",
+        "url": "https://www.deezer.com/album/777239051"
+      },
+      {
+        "id": "pandora-5",
+        "platform": "pandora",
+        "label": "pandora",
+        "url": "https://www.pandora.com/AL:49996716"
+      },
+      {
+        "id": "tidal-6",
+        "platform": "tidal",
+        "label": "Tidal",
+        "url": "https://listen.tidal.com/album/443876800"
+      },
+      {
+        "id": "spotify-7",
+        "platform": "spotify",
+        "label": "Spotify",
+        "url": "https://open.spotify.com/album/7jToFLgzvKxJxr4syBZlyY"
+      }
+    ]
+  },
+  "https://open.spotify.com/album/4qoUKMgXpizWRLFFVXOqx2": {
+    "title": "Searching",
+    "subtitle": "OLUWATOBI",
+    "type": "album",
+    "imageUrl": "https://i.scdn.co/image/ab67616d0000b2737146173235a2f0cdab910e27",
+    "spotifyUrl": "https://open.spotify.com/album/4qoUKMgXpizWRLFFVXOqx2",
+    "links": [
+      {
+        "id": "bandcamp-0",
+        "platform": "bandcamp",
+        "label": "Bandcamp",
+        "url": "https://oluwatobi.bandcamp.com/album/searching"
+      },
+      {
+        "id": "boomplay-1",
+        "platform": "boomplay",
+        "label": "Boomplay",
+        "url": "https://www.boomplay.com/albums/126946252"
+      },
+      {
+        "id": "pandora-2",
+        "platform": "pandora",
+        "label": "Pandora",
+        "url": "https://www.pandora.com/AL:62469184"
+      },
+      {
+        "id": "tidal-3",
+        "platform": "tidal",
+        "label": "Tidal",
+        "url": "https://listen.tidal.com/album/503785110"
+      },
+      {
+        "id": "spotify-4",
+        "platform": "spotify",
+        "label": "Spotify",
+        "url": "https://open.spotify.com/album/4qoUKMgXpizWRLFFVXOqx2"
+      }
+    ]
+  }
+}
