@@ -57,6 +57,14 @@ export function verifyToken(token) {
 }
 
 export function requireAdmin(req, res, next) {
+  if (!ensureAdmin(req, res)) {
+    return;
+  }
+
+  next();
+}
+
+export function ensureAdmin(req, res) {
   const authHeader = req.headers.authorization || "";
   const token = authHeader.startsWith("Bearer ")
     ? authHeader.slice("Bearer ".length)
@@ -64,8 +72,7 @@ export function requireAdmin(req, res, next) {
 
   if (!verifyToken(token)) {
     res.status(401).json({ error: "Unauthorized" });
-    return;
+    return false;
   }
-
-  next();
+  return true;
 }
