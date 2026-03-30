@@ -549,7 +549,8 @@ function SiteView({ content, releases }) {
                       target="_blank"
                       rel="noreferrer"
                     >
-                      {link.label}
+                      <span className="stream-link-kicker">Stream</span>
+                      <span className="stream-link-label">{link.label}</span>
                     </a>
                   ))}
                 </div>

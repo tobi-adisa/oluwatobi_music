@@ -317,7 +317,6 @@ img {
 }
 
 .social-strip a,
-.stream-links a,
 .link-pill {
   display: inline-flex;
   align-items: center;
@@ -329,7 +328,6 @@ img {
 }
 
 .social-strip a::before,
-.stream-links a::before,
 .link-pill::before {
   content: "";
   width: 0.55rem;
@@ -422,6 +420,69 @@ img {
   flex-wrap: wrap;
   gap: 0.65rem;
   margin-top: 1rem;
+}
+
+.stream-links a {
+  position: relative;
+  display: flex;
+  flex: 1 1 10rem;
+  min-width: 10rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+  padding: 0.95rem 1rem 1rem 1.1rem;
+  border-radius: 1.15rem;
+  border: 1px solid rgba(17, 17, 17, 0.14);
+  background:
+    linear-gradient(140deg, rgba(17, 17, 17, 0.98), rgba(52, 52, 52, 0.96));
+  box-shadow:
+    0 16px 28px rgba(17, 17, 17, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  color: white;
+  overflow: hidden;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.stream-links a::before {
+  content: "";
+  position: absolute;
+  right: -0.4rem;
+  bottom: -0.55rem;
+  width: 3.6rem;
+  height: 3.6rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.08));
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  opacity: 0.92;
+}
+
+.stream-links a:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow:
+    0 20px 34px rgba(17, 17, 17, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+.stream-link-kicker,
+.stream-link-label {
+  position: relative;
+  z-index: 1;
+}
+
+.stream-link-kicker {
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.stream-link-label {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .bandcamp-shell {
