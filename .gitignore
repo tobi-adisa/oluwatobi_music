@@ -3,4 +3,3 @@ dist
 .DS_Store
 .env
 .vercel
-data/site-content.json

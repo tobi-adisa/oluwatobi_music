@@ -15,6 +15,10 @@ function usesBlobStorage() {
   return Boolean(process.env.BLOB_READ_WRITE_TOKEN);
 }
 
+function isVercelRuntime() {
+  return Boolean(process.env.VERCEL);
+}
+
 async function ensureLocalFile(filePath, defaultData) {
   await fs.mkdir(path.dirname(filePath), { recursive: true });
 
@@ -26,12 +30,29 @@ async function ensureLocalFile(filePath, defaultData) {
 }
 
 async function loadLocalJson(filePath, defaultData) {
-  await ensureLocalFile(filePath, defaultData);
-  const raw = await fs.readFile(filePath, "utf8");
-  return JSON.parse(raw);
+  try {
+    const raw = await fs.readFile(filePath, "utf8");
+    return JSON.parse(raw);
+  } catch (error) {
+    if (error && error.code === "ENOENT") {
+      if (isVercelRuntime()) {
+        return clone(defaultData);
+      }
+
+      await ensureLocalFile(filePath, defaultData);
+      const raw = await fs.readFile(filePath, "utf8");
+      return JSON.parse(raw);
+    }
+
+    throw error;
+  }
 }
 
 async function saveLocalJson(filePath, value) {
+  if (isVercelRuntime()) {
+    throw new Error("Writable storage is not configured. Set BLOB_READ_WRITE_TOKEN on Vercel.");
+  }
+
   await fs.mkdir(path.dirname(filePath), { recursive: true });
   await fs.writeFile(filePath, JSON.stringify(value, null, 2));
 }

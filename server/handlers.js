@@ -15,6 +15,7 @@ export async function getContentHandler(_req, res) {
 export function adminStatusHandler(_req, res) {
   res.status(200).json({
     defaultPassword: isDefaultPassword(),
+    blobConfigured: Boolean(process.env.BLOB_READ_WRITE_TOKEN),
   });
 }
 
