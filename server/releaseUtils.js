@@ -1,3 +1,5 @@
+const EXCLUDED_PLATFORMS = new Set(["deezer"]);
+
 export function normalizeSpotifyUrl(url) {
   if (!url) {
     return "";
@@ -40,6 +42,10 @@ export function dedupeLinks(links = []) {
     }
 
     const platform = (link?.platform || "").trim();
+    if (EXCLUDED_PLATFORMS.has(platform)) {
+      return;
+    }
+
     const label = (link?.label || platform || "Link").trim();
     const key = `${platform}::${url}`;
 

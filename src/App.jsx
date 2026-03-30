@@ -130,7 +130,6 @@ function streamingPriority(link) {
     "youtubeMusic",
     "bandcamp",
     "soundcloud",
-    "deezer",
     "tidal",
     "amazonMusic",
     "youtube",

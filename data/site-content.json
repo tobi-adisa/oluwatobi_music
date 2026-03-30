@@ -64,12 +64,6 @@
           "url": "https://www.boomplay.com/albums/112575179"
         },
         {
-          "id": "deezer-4",
-          "platform": "deezer",
-          "label": "Deezer",
-          "url": "https://www.deezer.com/album/777239051"
-        },
-        {
           "id": "pandora-5",
           "platform": "pandora",
           "label": "pandora",
@@ -112,11 +106,6 @@
           "label": "Apple Music",
           "url": "https://music.apple.com/us/album/in-time-ep/1828171416?uo=4"
         },
-        {
-          "id": "deezer-fallback",
-          "platform": "deezer",
-          "label": "Deezer",
-          "url": "https://www.deezer.com/album/790982591"
         }
       ]
     },
@@ -142,12 +131,6 @@
           "platform": "appleMusic",
           "label": "Apple Music",
           "url": "https://music.apple.com/us/album/searching/1882284973?uo=4"
-        },
-        {
-          "id": "deezer-fallback",
-          "platform": "deezer",
-          "label": "Deezer",
-          "url": "https://www.deezer.com/album/931386121"
         },
         {
           "id": "bandcamp-0",

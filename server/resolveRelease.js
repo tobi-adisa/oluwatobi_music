@@ -7,7 +7,6 @@ const platformLabels = {
   youtubeMusic: "YouTube Music",
   youtube: "YouTube",
   tidal: "Tidal",
-  deezer: "Deezer",
   amazonMusic: "Amazon Music",
   soundcloud: "SoundCloud",
   bandcamp: "Bandcamp",
@@ -163,39 +162,9 @@ async function searchAppleMusicRelease(title, artist, type) {
   };
 }
 
-async function searchDeezerRelease(title, artist) {
-  const response = await fetch(
-    `https://api.deezer.com/search/album?q=${encodeURIComponent(`artist:"${artist}" album:"${title}"`)}`
-  );
-
-  if (!response.ok) {
-    return null;
-  }
-
-  const payload = await response.json();
-  const result = (payload.data || []).find(
-    (item) =>
-      item.artist?.name &&
-      titlesLookRelated(item.title || "", title) &&
-      normalizeForMatch(item.artist.name) === normalizeForMatch(artist)
-  );
-
-  if (!result?.link) {
-    return null;
-  }
-
-  return {
-    id: "deezer-fallback",
-    platform: "deezer",
-    label: "Deezer",
-    url: result.link,
-  };
-}
-
 async function findFallbackLinks(release) {
   const lookups = await Promise.allSettled([
     searchAppleMusicRelease(release.title, release.subtitle, release.type),
-    searchDeezerRelease(release.title, release.subtitle),
   ]);
 
   return dedupeLinks(
@@ -288,8 +257,8 @@ export async function resolveReleaseFromSpotifyUrl(spotifyUrl, options = {}) {
       },
       message:
         error instanceof Error && error.message === "Smart-link service is rate limited."
-          ? "The smart-link service is rate limited right now, so I filled Spotify plus any direct Apple Music and Deezer matches I could confirm."
-          : "Artwork and Spotify details were filled, along with any direct Apple Music and Deezer matches I could confirm.",
+          ? "The smart-link service is rate limited right now, so I filled Spotify plus any direct Apple Music matches I could confirm."
+          : "Artwork and Spotify details were filled, along with any direct Apple Music matches I could confirm.",
     };
   }
 }

@@ -1,4 +1,5 @@
 import { loadJsonStore, saveJsonStore } from "./jsonStore.js";
+import { dedupeLinks, normalizeSpotifyUrl } from "./releaseUtils.js";
 
 async function loadCache() {
   return loadJsonStore({
@@ -18,11 +19,24 @@ async function saveCache(cache) {
 
 export async function getCachedRelease(spotifyUrl) {
   const cache = await loadCache();
-  return cache[spotifyUrl] || null;
+  const release = cache[spotifyUrl] || null;
+  if (!release) {
+    return null;
+  }
+
+  return {
+    ...release,
+    spotifyUrl: normalizeSpotifyUrl(release.spotifyUrl || spotifyUrl),
+    links: dedupeLinks(release.links || []),
+  };
 }
 
 export async function setCachedRelease(spotifyUrl, release) {
   const cache = await loadCache();
-  cache[spotifyUrl] = release;
+  cache[spotifyUrl] = {
+    ...release,
+    spotifyUrl: normalizeSpotifyUrl(release.spotifyUrl || spotifyUrl),
+    links: dedupeLinks(release.links || []),
+  };
   await saveCache(cache);
 }
