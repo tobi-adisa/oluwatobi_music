@@ -376,7 +376,7 @@ function App() {
           <a href="#site">Site</a>
           <a href="#releases">Releases</a>
           <a href="#about">About</a>
-          <a href="#admin">Admin</a>
+          <a href="#admin">Login</a>
         </nav>
       </header>
 
@@ -612,26 +612,15 @@ function AdminView({
     return (
       <main className="admin-shell">
         <section className="admin-login-card">
-          <p className="eyebrow">Admin</p>
-          <h1>Manage your artist site</h1>
-          <p>
-            Unlock the editor to update copy, social links, and release cards. New Spotify
-            URLs can auto-fill artwork and streaming destinations.
-          </p>
-          {defaultPassword ? (
-            <p className="warning-banner">
-              You are using the default admin password. Update `ADMIN_PASSWORD` before going
-              live.
-            </p>
-          ) : null}
+          <h1>Login</h1>
           <form className="admin-login-form" onSubmit={onLogin}>
             <input
               type="password"
-              placeholder="Admin password"
+              placeholder="Password"
               value={adminPassword}
               onChange={(event) => onChangeAdminPassword(event.target.value)}
             />
-            <button type="submit">Unlock admin</button>
+            <button type="submit">Login</button>
           </form>
           {message ? <p className="status-line">{message}</p> : null}
         </section>
